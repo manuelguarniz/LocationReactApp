@@ -1,0 +1,4 @@
+Install:
+npx create-react-app my-app
+yarn add react-weathericons
+yarn add prop-types
