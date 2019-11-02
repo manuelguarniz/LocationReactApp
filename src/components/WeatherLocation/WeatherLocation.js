@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { CircularProgress } from '@material-ui/core';
 import Location from './Location';
 import WeatherData from './WeatherData/WeatherData';
 import './styles.css';
@@ -35,9 +36,9 @@ class WeatherLocation extends React.Component {
         {
           data
           ? <WeatherData data={data}></WeatherData>
-          : 'Cargando..'
+          : <CircularProgress size={50} />
         }
-        {/* <button onClick={this.handleUpdateClick.bind(this)}>Actualizar</button> */}
+        {/* <button onClick={this.handleUpdateClick.bind(this)}>Update</button> */}
       </div>
     );
   }
