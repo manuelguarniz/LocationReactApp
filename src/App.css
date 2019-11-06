@@ -20,3 +20,18 @@
 .App-link {
   color: #09d3ac;
 }
+
+.green, .red, .blue {
+  margin-top: 15px;
+  height: 50px;
+}
+
+.green {
+  background-color: green;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
