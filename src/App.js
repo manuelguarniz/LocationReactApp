@@ -1,8 +1,14 @@
 import React from 'react';
-import './App.css';
-import LocationList from './components/WeatherLocation/LocationList';
+import {
+  Paper,
+  AppBar,
+  Typography,
+  Toolbar,
+} from '@material-ui/core';
+import LocationList from './components/LocationList';
 import { Grid, Col, Row } from 'react-flexbox-grid';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import './App.css';
+import ForecastExtended from './components/ForecastExtended';
 
 const cities = [
   'Washington,us',
@@ -10,31 +16,43 @@ const cities = [
   'Santiago,cl',
   'Madrid,es',
 ];
+
 class App extends React.Component {
+  constructor() {
+    super()
+    this.state = { city: 'Trujillo, pe' };
+  }
   handleSelectionLocation(city) {
+    this.setState({city: city});
     console.log(`handleSelectionLocation: ${city}`);
   }
   render() {
+    const { city } = this.state;
     return (
-      <MuiThemeProvider>
-        <Grid fluid>
-          <Row>
-            <Col xs={12} sm={6} md={4}>
-              <div className='red'></div>
-            </Col>
-            <Col xs={12} sm={6} md={4}>
-              <div className='green'></div>
-            </Col>
-            <Col xs={12} sm={6} md={4}>
-              <div className='blue'></div>
-            </Col>
-          </Row>
-        </Grid>
-      </MuiThemeProvider>
-      // <div className="App">
-      //   <LocationList cities={cities}
-      //     onSelectLocation={this.handleSelectionLocation}/>
-      // </div>
+      <Grid>
+        <Row>
+          <AppBar position='sticky'>
+            <Toolbar>
+              <Typography variant='h5' color='inherit'>
+                Weather App
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
+            <LocationList cities={cities}
+              onSelectLocation={this.handleSelectionLocation.bind(this)}/>
+          </Col>
+          <Col xs={12} md={6}>
+            <Paper elevation={4}>
+              <div className='details'>
+                <ForecastExtended city={city}/>
+              </div>
+            </Paper>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import WeatherLocation from './WeatherLocation'
+import './styles.css'
 
 class LocationList extends React.Component {
   strToComponents(cities) {
@@ -18,7 +19,7 @@ class LocationList extends React.Component {
   render() {
     const { cities } = this.props;
     return(
-      <div>
+      <div className='locationList'>
         {this.strToComponents(cities)}
       </div>
     );

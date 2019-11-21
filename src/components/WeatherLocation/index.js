@@ -2,7 +2,7 @@ import React from 'react';
 import { CircularProgress } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import Location from './Location';
-import WeatherData from './WeatherData/WeatherData';
+import WeatherData from './WeatherData';
 import './styles.css';
 import transformWeather from './../../services/transform';
 import getUrlWeatherByCity from './../../services/weather.services';
